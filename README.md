@@ -100,11 +100,11 @@ AI貼り付けログを軽量化しました。毎ターンルール全文を貼
 
 ## 📢 現在の調整と不具合
 
-### 🐛 英語バージョンにおいて、長んこを叫び続けると、んこボタンが右に逃げていく不具合が発生中です。
+### 🐛 英語バージョンにおいて、長んこを叫び続けると、んこボタンが右に逃げていく不具合は修正されました。
 
-### ⚖️バランス調整中
-現在全モードにおいて、想定されている「んこ」具合とうんちゆ！によるちょうどいいお腹具合を探っているところです。
-バランス調整中によりご不便（とお腹の限界）をおかけしますが、ちょうどよいバランスになるまで今しばらくお待ちください！💩
+### ⚖️バランス調整　v31は前回バージョンより読み合いが強化されました。
+現在全モードにおいて、想定されている「んこ」具合とうんちゆ！によるちょうどいいお腹具合を現在も探っているところです。
+バランス調整中によりご不便（とお腹の限界）をおかけしますが、ちょうどよいバランスを目指して微調整を重ねています！💩
 
 ---
 
@@ -289,11 +289,12 @@ Repository homepage:
 
 ### 🐛 Known Issue in English Version
 * **Symptom:** When you **hold down (long-press)** the button to extend your **"N-ko"** shout, the **"Poop"** button physically drifts and flees to the right side of the screen. 
-* **Status:** This issue has **NOT** been fixed or addressed yet. We are currently leaving it as-is.
+* **Status:** **Fixed.**
 
-### ⚖️ Under Construction: Tuning the "Belly Pressure" Balance
-We are currently in the middle of fine-tuning the internal formulas for **"Belly Pressure"**.
-* **Status:** **Active Adjustments Underway (Not yet finalized).**
-* **Our Goal:** We are currently tweaking and adjusting the balance between **"Individual Poop" (personal penalties)** and **"Field Poop" (room-wide explosions)** so that all game modes achieve the perfect, most fun level of tension for players.
+### ⚖️ Balance Adjustments
+**In v31, the mind games have been enhanced compared to the previous version.**
+
+Currently, across all modes, we are still exploring the sweet spot between the ideal "N-ko" intensity and the perfect stomach condition brought on by "Unchiyu!". 
+We apologize for any inconvenience (and for pushing your stomachs to the limit) while we work on these balance adjustments, but we are continuously fine-tuning things to reach the perfect balance! 💩
 
 Thank you for your patience while we adjust the pressure! 💩
