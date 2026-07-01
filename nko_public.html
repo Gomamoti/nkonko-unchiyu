@@ -763,7 +763,7 @@
     <span id="roundText">ターン 1</span>
     <span id="modeText">女子会モード</span>
     <span id="starterText">親：P1</span>
-    <label class="ai-balance-toggle" id="aiBalanceToggle"><input type="checkbox" id="aiBalanceModeCheck">AI調整モード</label>
+    <label class="ai-balance-toggle" id="aiBalanceToggle"><input type="checkbox" id="aiBalanceModeCheck" checked>AI調整モード</label>
   </div>
 
   <div class="gauges-shared">
@@ -1058,7 +1058,7 @@
   let operationLog = [];
   let pendingAiRequest = null;
   let useMassRule = false;
-  let aiBalanceMode = false;
+  let aiBalanceMode = true;
   let isLocked = false;
   let isHolding = false;
   let dashCount = 0;

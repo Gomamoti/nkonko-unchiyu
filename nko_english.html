@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NKO💩 v33 Vent Test</title>
+<title>NNKO💩 / NKO NKO UNCHIYU!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #17130f;
@@ -19,7 +22,7 @@
     min-height: 100vh;
     background: radial-gradient(circle at top, #35261b 0%, var(--bg) 56%, #070605 100%);
     color: var(--text);
-    font-family: "Courier New", "Hiragino Sans", "Yu Gothic", monospace;
+    font-family: "Space Mono", "Courier New", "Hiragino Sans", "Yu Gothic", monospace;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -34,12 +37,23 @@
     padding: 18px;
     box-shadow: 0 18px 48px rgba(0,0,0,.45);
   }
-  h1 {
+  h1.game-title {
     margin: 0 0 8px;
     color: var(--accent);
-    font-size: clamp(22px, 4vw, 34px);
+    font-family: "Fredoka", "Space Mono", "Courier New", sans-serif !important;
+    font-weight: 700;
+    font-size: clamp(28px, 5.2vw, 48px);
     line-height: 1.15;
     text-shadow: 0 3px 0 rgba(0,0,0,.45);
+  }
+  .game-title * {
+    font-family: "Fredoka", "Space Mono", "Courier New", sans-serif !important;
+  }
+  .title-sub {
+    display: inline-block;
+    margin-top: 2px;
+    font-size: .55em;
+    letter-spacing: .015em;
   }
   .subtitle { color: var(--muted); margin: 0 0 14px; line-height: 1.45; }
   .mode-row {
@@ -197,7 +211,7 @@
     background: #1c1812;
     border: 1px solid #2a2218;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
   }
   .fuzzy-zone.lit {
     background: linear-gradient(180deg, #8a6326, #ffcf33);
@@ -361,8 +375,29 @@
     line-height: 1.35;
     word-break: break-all;
   }
+  .nko-sound {
+    font-family: "Bangers", "Fredoka", "Space Mono", sans-serif;
+    letter-spacing: .045em;
+    color: #fff3a4;
+    text-shadow: 0 2px 0 rgba(86, 42, 18, .95), 0 0 10px rgba(255, 207, 51, .38);
+  }
+  #utterance .nko-sound {
+    font-size: 1.22em;
+    letter-spacing: .055em;
+  }
+  .log-line .nko-sound {
+    font-size: 1.10em;
+  }
+  #turnPhrase .nko-sound {
+    font-size: 1em;
+    letter-spacing: .035em;
+    color: #dcefff;
+    text-shadow: 0 1px 0 rgba(27, 46, 72, .9), 0 0 7px rgba(121, 185, 239, .25);
+    opacity: .92;
+  }
   #message {
     color: #ffd966;
+    font-family: "Space Mono", "Courier New", monospace;
     font-size: clamp(15px, 2.4vw, 19px);
     line-height: 1.45;
     white-space: pre-wrap;
@@ -457,13 +492,38 @@
     border-radius: 50%;
     background: #bd8252;
   }
-  #nkoButtonLabel { position: relative; z-index: 2; display: block; width: 100%; text-align: center; white-space: nowrap; }
+  #nkoButtonLabel {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: calc(100% - 28px);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: .045em;
+    font-size: clamp(24px, 16vw, 56px);
+    line-height: 1;
+  }
   #nkoButton:active, #nkoButton.holding {
     transform: translateY(6px);
     box-shadow: none;
     filter: brightness(1.08) drop-shadow(0 2px 0 #222);
   }
+  #nkoButton.holding #nkoButtonLabel {
+    font-family: "Bangers", "Fredoka", "Space Mono", sans-serif;
+  }
   #nkoButton.long { animation: shake .08s infinite alternate; }
+  #nkoButton.long #nkoButtonLabel {
+    font-size: clamp(19px, 9vw, 38px);
+    letter-spacing: .03em;
+    text-shadow: 0 0 10px rgba(255, 235, 120, .75), 0 3px 0 rgba(0,0,0,.5);
+  }
   #endTurnButton { background: linear-gradient(180deg, #3f536f, #202d42); font-size: clamp(15px, 2.4vw, 23px); }
   #undoButton { background: linear-gradient(180deg, #7a6535, #3f3217); font-size: clamp(15px, 2.4vw, 22px); }
   #teaButton { background: linear-gradient(180deg, #557a45, #253c23); font-size: clamp(15px, 2.4vw, 23px); }
@@ -747,7 +807,7 @@
 </head>
 <body>
 <main id="game">
-  <h1>NNKO💩<br><span style="font-size:0.55em">NKO NKO UNCHIYU! v33 Vent Test</span></h1>
+  <h1 class="game-title">NNKO💩<br><span class="title-sub">NKO NKO UNCHIYU!</span></h1>
   <p class="subtitle">
     A three-player push-your-luck party game. Quiet turns slightly ventilate the room air in this v33 test build.
   </p>
@@ -763,7 +823,7 @@
     <span id="roundText">Turn 1</span>
     <span id="modeText">Party Mode</span>
     <span id="starterText">Starter: P1</span>
-    <label class="ai-balance-toggle" id="aiBalanceToggle"><input type="checkbox" id="aiBalanceModeCheck">AI Balance Mode</label>
+    <label class="ai-balance-toggle" id="aiBalanceToggle"><input type="checkbox" id="aiBalanceModeCheck" checked>AI Balance Mode</label>
   </div>
 
   <div class="gauges-shared">
@@ -931,7 +991,7 @@
   <div class="scoreboard">
     <div class="stage-label">Scores</div>
     <div class="hint" style="margin-top:0;">
-      Total = NKO score - personal poop penalty - chicken penalty - shared poop x80. Under standard rules, shared-poop offenders are the biggest loser candidates first; if tied, the lower total is more dangerous.
+      Total = NKO score - personal poop penalty - chicken penalty - shared poop x80. For win/loss ranking, shared-poop offenders are the biggest loser candidates first; if tied, the lower total is more dangerous.
       <label style="display:block;margin-top:8px;">
         <input type="checkbox" id="massRuleCheck">
         Use stronger personal poop penalties
@@ -951,7 +1011,7 @@
 
   <p class="hint">
     Pressure is separated per player. The acting player's pressure rises; Personal Poop becomes that player's penalty and also adds to Shared Poop.
-    If Shared Poop explodes, Flush Power takes fixed damage, and under standard rules the trigger player is the loser candidate. Joker setup stays secret; only hit or miss is revealed.
+    If Shared Poop explodes, Flush Power takes fixed damage, and the trigger player becomes the main loser candidate. Joker setup stays secret; only hit or miss is revealed.
   </p>
 </main>
 
@@ -1058,16 +1118,17 @@
   let operationLog = [];
   let pendingAiRequest = null;
   let useMassRule = false;
-  let aiBalanceMode = false;
+  let aiBalanceMode = true;
   let isLocked = false;
   let isHolding = false;
   let dashCount = 0;
   let holdTimer = null;
+  let holdStartedAt = 0;
   let debug = false;
   let gameOver = false;
 
   const MAX_VISIBLE_PARTS = 44;
-  const TICK_MS = 105;
+  const HOLD_POLL_MS = 50;
 
   const nkoButton = $("nkoButton");
   const nkoButtonLabel = $("nkoButtonLabel");
@@ -1090,7 +1151,11 @@
     return aiBalanceMode ? 5.0 : cfg().unchiPenaltyMul;
   }
   function aiBalanceStateText() {
-    return aiBalanceMode ? "AI Balance Mode：ON / 5発目以降の連打点なし / Personal poop penalty×5.0" : "";
+    return aiBalanceMode ? "AI Balance Mode: ON / no repeated-input score after the 4th hit / Personal poop penalty x5.0" : "";
+  }
+  function activeModeRuleText() {
+    const c = cfg();
+    return `${c.name}: Flush damage ${c.fieldDamage}% / Long NKO score x${c.longScoreMul} / Personal Poop penalty x${currentUnchiPenaltyMul()} / Shared Poop buildup x${c.unchiFieldMul} / Quiet-turn ventilation Air-${c.quietVent}`;
   }
   function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
   function jitter(min, max) { return min + Math.random() * (max - min); }
@@ -1111,6 +1176,32 @@
   function word(dashes, closed = true) {
     const line = "N".repeat(Math.max(1, dashes + 1));
     return closed ? line + "KO" : line;
+  }
+  function buttonWord(dashes) {
+    if (dashes >= 3) {
+      const nCount = Math.min(16, dashes + 1);
+      const bangs = dashes >= 7 ? "!!!" : dashes >= 5 ? "!!" : "!";
+      return `LONG ${"N".repeat(nCount)}KO${bangs}`;
+    }
+    return classNameEN(classify(dashes));
+  }
+  function holdDisplayWord(dashes) {
+    const nCount = Math.min(36, dashes + 1);
+    return "N".repeat(nCount);
+  }
+  function dashesFromHoldElapsed(elapsedMs) {
+    if (elapsedMs < 250) return 0;
+    if (elapsedMs < 650) return 1;
+    if (elapsedMs < 1050) return 2;
+    return 3 + Math.floor((elapsedMs - 1050) / 105);
+  }
+  function refreshHoldPreview() {
+    const elapsed = performance.now() - holdStartedAt;
+    dashCount = dashesFromHoldElapsed(elapsed);
+    showPhrase(word(dashCount, false));
+    nkoButtonLabel.textContent = holdDisplayWord(dashCount);
+    nkoButton.classList.toggle("long", dashCount >= 3);
+    messageEl.textContent = `Release now: ${buttonWord(dashCount)}`;
   }
   function classify(dashes) {
     if (dashes === 0) return "tiny";
@@ -1283,9 +1374,14 @@
     if (preview) parts.push(preview);
     return parts.length ? parts.join("　") : "No input yet this turn";
   }
+  function nkoSoundHTML(text) {
+    return escapeHTML(text).replace(/\b(?:LONG\s+)?N+KO!*\b|\bN+\b/g, (raw) => `<span class="nko-sound">${raw}</span>`);
+  }
   function showPhrase(preview = "") {
-    utteranceEl.textContent = phraseWithPreview(preview);
-    turnPhraseEl.textContent = turnPhraseWithPreview(preview);
+    const publicText = phraseWithPreview(preview);
+    const turnText = turnPhraseWithPreview(preview);
+    utteranceEl.innerHTML = nkoSoundHTML(publicText);
+    turnPhraseEl.textContent = turnText;
   }
   function appendPhrase(part) {
     phraseParts.push(part);
@@ -1360,7 +1456,7 @@
     if (!recent.length) return "No recent operation log";
     return recent.map(op => {
       const actions = op.actions && op.actions.length ? op.actions.join(" → ") : "no action";
-      const effects = op.effects && op.effects.length ? `（結果：${op.effects.join(" / ")}）` : "";
+      const effects = op.effects && op.effects.length ? ` (result: ${op.effects.join(" / ")})` : "";
       return `T${op.turn}/${op.player} = ${actions}${effects}`;
     }).join("\n");
   }
@@ -1378,7 +1474,7 @@
       if (lastEvent.type === "field") {
         html += `💩💦 <strong>${lastEvent.culprit} got Shared Poop! UNCHIYU!</strong><br>` +
           `Flush Power left ：${Math.max(0, Math.round(lastEvent.waterAfter))}%<br>` +
-          `Standard rule: ${lastEvent.culprit} is the loser candidate / Next up: ${players[active].name}.`;
+          `Win condition: ${lastEvent.culprit} is the main loser candidate / Next up: ${players[active].name}.`;
       } else {
         html += `💩 <strong>${lastEvent.culprit} got Personal Poop! UNCHIYU!</strong><br>` +
           `Personal poop penalty：${lastEvent.unchiPoint.toFixed(1)} / No Flush Power damage<br>` +
@@ -1397,7 +1493,7 @@
       return [
         "[Shared Poop Alert]",
         `${lastEvent.culprit} got Shared Poop! UNCHIYU! 💩💦`,
-        `Standard rule: ${lastEvent.culprit} が負け候補`,
+        `Win condition: ${lastEvent.culprit} is the main loser candidate`,
         `Flush Power: ${Math.max(0, Math.round(lastEvent.waterAfter))}%`,
         `Next turn: ${players[active].name}`,
         "",
@@ -1431,11 +1527,12 @@
       `Flush Power: ${Math.max(0, Math.round(water))}%`,
       `Shared Poop: ${fieldUnchiStatus()}`,
       `Shared Poop Offenders: ${fieldLoserText()}`,
-      `Rule: Standard (shared-poop trigger loses, Personal Poop is a penalty, NKO score is positive)`,
+      `Win condition: Shared Poop trigger is the main loser candidate; Personal Poop is a penalty; NKO score is positive.`,
+      `Active mode tuning: ${activeModeRuleText()}`,
       `Input count: ${moveCount}`,
       `Personal Poop count: ${accidentCount}`,
       `Public Log：${phraseWithPreview()}`,
-      `直近操作：\n${recentOperationText(5)}`,
+      `Recent operations:\n${recentOperationText(5)}`,
       `${formatEvent(lastEvent)}`,
       `Latest minor incident: ${lastMinorEvent || "none"}`,
       `This turn: ${turnPhraseWithPreview()}`,
@@ -1456,7 +1553,7 @@
       `${formatEvent(lastEvent)}`,
       `Latest minor incident: ${lastMinorEvent || "none"}`,
       `Latest public phrase：${recentPhraseText(8)}`,
-      `直近操作：\n${recentOperationText(5)}`,
+      `Recent operations:\n${recentOperationText(5)}`,
       `This turn: ${turnPhraseWithPreview()}`,
       `Scores：${players.map(p => scoreFormulaText(p, { hideSecret: true })).join("\n")}`
     ].filter(Boolean).join("\n");
@@ -1524,6 +1621,9 @@
     return [
       'Rules for "NKO NKO UNCHIYU!".',
       "",
+      `Current mode: ${cfg().name}`,
+      `Active mode tuning: ${activeModeRuleText()}`,
+      "",
       "Rules:",
       "- Three-player game. Hold the button for NKO, NNKO, NNNKO, or Long NKO. Longer calls score more, but raise pressure more.",
       "- Party Mode is short and volatile, with more accidents and faster shared-poop buildup.",
@@ -1534,14 +1634,14 @@
       "- Long NKO is always Push. Among the three short calls (NKO / NNKO / NNNKO), exactly one is Pull and the other two are Normal. You cannot see which short call is Pull.",
       "- Personal Pressure rises from your own inputs. Room Air and Shared Poop rise from everyone's inputs and accidents.",
       "- Personal Poop triggers when Personal Pressure x (1 + Room Air modifier) exceeds the limit. It becomes that player's penalty and also adds to Shared Poop.",
-      "- Long NKO (3+ dashes) scores at x0.5. High risk, low return.",
+      "- Long NKO (3+ dashes) uses the active mode's Long NKO score multiplier. High risk, low return.",
       "- Tea ☕ can be used twice per player. It skips input, gives 0 points, and slightly raises Pressure. No consecutive use.",
-      "- If everyone keeps using only short NKO (NKO / NNKO) or tea-only quiet turns, room ventilation may trigger (Air -5). Late-game Shared Poop does not ventilate.",
+      "- If everyone keeps using only short NKO (NKO / NNKO) or tea-only quiet turns, room ventilation may trigger. Late-game Shared Poop does not ventilate.",
       "- Silent Fart 💨 can be used once per player. It lowers your Pressure, slightly raises everyone else's Pressure, and worsens Room Air.",
       "- Poop Joker 💣 can be used once per player. It is not standalone: add it after at least one NKO input in the same turn. It secretly traps one input for the next player. If triggered, their Pressure jumps; if it misses, it rebounds on the owner.",
       '- To use the joker, write "[SECRET] Poop Joker 💣" on the line after the public NKO input. Humans handle the [SECRET] line on-screen only; it is not included in the next-player log.',
       "- Repeatedly escaping with only NKO while Room Air is heavy builds Chicken penalties. If everyone does only NKO for a full round, the room rots.",
-      "- The match ends at 0% Flush Power. The player who triggers Shared Poop loses. If nobody triggered Shared Poop, compare NKO score - Personal Poop penalty - Chicken penalty.",
+      "- The match ends at 0% Flush Power. For win/loss ranking, Shared Poop triggers are the main loser candidates. If nobody triggered Shared Poop, compare NKO score - Personal Poop penalty - Chicken penalty.",
       "",
       "Choose the next action as the player."
     ].filter(Boolean).join("\n");
@@ -1622,7 +1722,7 @@
     if (!criminals.length) return "[Shared Poop Offender Report] Shared Poop Offenders: none.";
     const lines = [
       "[Shared Poop Offender Report]",
-      criminals.map(p => `${p.name}：場うんち${p.fieldAccidents}回`).join(" / "),
+      criminals.map(p => `${p.name}: Shared Poop x${p.fieldAccidents}`).join(" / "),
       "",
       "There are Shared Poop Offenders. Decide the punishment together.",
       "Punishment examples: make a declaration next round, force a Long NKO next turn, formal-speech only, and so on.",
@@ -1775,7 +1875,7 @@
     const loser = losers[0];
     const winner = winners[0];
     const nkoKing = players.slice().sort((a, b) => b.score - a.score)[0];
-    return `Flush Power depleted. Winner candidate: ${winner.name}. Loser candidate: ${loser.name}. NKO king: ${nkoKing.name}. Under standard rules, Shared Poop Offenders weigh heavily.`;
+    return `Flush Power depleted. Winner candidate: ${winner.name}. Loser candidate: ${loser.name}. NKO king: ${nkoKing.name}. For win/loss ranking, Shared Poop Offenders weigh heavily.`;
   }
 
   function updateUI() {
@@ -1865,8 +1965,8 @@
     roomAir = clamp(roomAir - amount, 0, 120);
     const diff = before - roomAir;
     if (diff > 0.01) {
-      lastMinorEvent = `静かなTurnで換気 / Room Air-${diff.toFixed(1)}`;
-      addLog(`🪟 静かなTurnで換気（Room Air-${diff.toFixed(1)}）`);
+      lastMinorEvent = `Quiet turn ventilation / Room Air-${diff.toFixed(1)}`;
+      addLog(`🪟 Quiet turn ventilation (Room Air-${diff.toFixed(1)})`);
     }
   }
 
@@ -1881,9 +1981,9 @@
       if (penalty > 0) {
         p.belly = clamp(p.belly + penalty, 10, 150);
         p.chickenPenalty += penalty;
-        lastMinorEvent = `${p.name} にNKO dodge弱気圧 +${penalty} / Chicken+${penalty}`;
-        addLog(`🫣 ${p.name}: NKO dodge弱気圧 +${penalty} / Chicken+${penalty}`);
-        messageEl.textContent = `${p.name} にNKO dodge弱気圧 +${penalty}`;
+        lastMinorEvent = `${p.name} got NKO-dodge pressure +${penalty} / Chicken+${penalty}`;
+        addLog(`🫣 ${p.name}: NKO-dodge pressure +${penalty} / Chicken+${penalty}`);
+        messageEl.textContent = `${p.name} got NKO-dodge pressure +${penalty}`;
       }
     } else if (!wasNkoOnly) {
       p.nkoOnlyStreak = 0;
@@ -1892,7 +1992,7 @@
 
   function addFieldUnchi(amount, reason, culpritIndex) {
     fieldUnchi = clamp(fieldUnchi + amount, 0, 180);
-    lastMinorEvent = `Shared Poop increased / Reason:${reason}`;
+    lastMinorEvent = `Shared Poop increased / Reason: ${reason}`;
     addLog(`💩💦 Shared Poop increased (${reason})`);
     if (fieldUnchi >= fieldUnchiLimit) triggerFieldUnchi(culpritIndex, reason);
   }
@@ -1909,7 +2009,7 @@
     eventLog.push(lastEvent);
     lastMinorEvent = null;
     messageEl.textContent = `${p.name} got Shared Poop! UNCHIYU! 💩💦 Flush Power -${damage}%`;
-    addLog(`💩💦 ${p.name}: Shared Poop! UNCHIYU! Flush Power -${damage} Remaining ${Math.max(0, Math.round(water))}% Reason:${reason}`);
+    addLog(`💩💦 ${p.name}: Shared Poop! UNCHIYU! Flush Power -${damage} Remaining ${Math.max(0, Math.round(water))}% Reason: ${reason}`);
     updateUI();
     if (!gameOver && !isEndingTurn) endTurn();
   }
@@ -1926,7 +2026,7 @@
       players.forEach(p => { p.belly = clamp(p.belly + 2, 10, 150); });
       addLog("🫖💀 Everyone dodged with NKO for a full round. The room decayed (Air +8, everyone Pressure +2, Shared Poop +18)");
       messageEl.textContent = "Everyone dodged with NKO; the room decayed... Air +8, everyone Pressure +2, Shared Poop +18";
-      addFieldUnchi(18, "全員NKO dodgeで部屋腐り", playerIndex);
+      addFieldUnchi(18, "everyone dodged with NKO and the room decayed", playerIndex);
       turnHistory = [];
     }
   }
@@ -1940,12 +2040,12 @@
       return;
     }
     if (currentTurnParts.length === 0) {
-      messageEl.textContent = "Poop Joker 💣は、最低1回入力してから仕込みます";
+      messageEl.textContent = "Poop Joker 💣 can only be set after at least one NKO input";
       return;
     }
     p.jokerLeft -= 1;
     pendingJoker = { owner: active, target: (active + 1) % players.length, cls: jokerClassFromChoice(), hit: false };
-    messageEl.textContent = "Poop Joker 💣を裏で仕込みました（AIログには出しません）";
+    messageEl.textContent = "Poop Joker 💣 was secretly set. It will not appear in the AI log.";
     updateUI();
   }
   function resolveJokerIfMiss(targetIndex) {
@@ -1953,9 +2053,9 @@
     const owner = players[pendingJoker.owner];
     owner.belly = clamp(owner.belly + 10, 10, 140);
     roomAir = clamp(roomAir + 5, 0, 120);
-    lastMinorEvent = "んちジョーカー不発💣💨 / 仕掛け人非公開 / 仕掛け人Pressure+10 / Room Air+5";
+    lastMinorEvent = "Poop Joker missed 💣💨 / owner hidden / owner Pressure+10 / Room Air+5";
     messageEl.textContent = "Someone's Poop Joker missed... 💣💨";
-    addLog("💣💨 誰かのんちジョーカーが不発（仕掛け人は非公開）");
+    addLog("💣💨 Someone's Poop Joker missed (owner hidden)");
     pendingJoker = null;
   }
 
@@ -1966,9 +2066,9 @@
     const p = players[active];
     p.belly = clamp(p.belly + 22, 10, 150);
     roomAir = clamp(roomAir + 6, 0, 120);
-    lastMinorEvent = `んちジョーカー命中💣 / 対象:${p.name} / 対象Pressure+22 / Room Air+6 / 仕掛け人非公開`;
-    addLog(`💣 Poop Joker hit!! ${p.name}のPressureが上がりました`);
-    messageEl.textContent = `Poop Joker hit!!💣 ${p.name}のPressureが上がりました`;
+    lastMinorEvent = `Poop Joker hit 💣 / target:${p.name} / target Pressure+22 / Room Air+6 / owner hidden`;
+    addLog(`💣 Poop Joker hit!! ${p.name}'s Pressure increased`);
+    messageEl.textContent = `Poop Joker hit!! 💣 ${p.name}'s Pressure increased`;
     pendingJoker = null;
     return true;
   }
@@ -1976,7 +2076,7 @@
   function endTurn() {
     if (gameOver || isHolding) return;
     if (currentTurnParts.length === 0) {
-      messageEl.textContent = "どれか1個入力するか、Tea ☕にしてください";
+      messageEl.textContent = "Enter at least one move, or use Tea ☕.";
       return;
     }
 
@@ -1993,7 +2093,7 @@
     resolveJokerIfMiss(active);
 
     if (turnFieldNoise > 0) {
-      addFieldUnchi(turnFieldNoise, `${players[active].name}の発話ログ汚染`, active);
+      addFieldUnchi(turnFieldNoise, `${players[active].name}'s noisy speech log`, active);
       turnFieldNoise = 0;
     }
     applyQuietVentIfNeeded(currentTurnParts, turnMoveDashes);
@@ -2001,7 +2101,7 @@
     const effects = [];
     if (eventLog.length > previousEventCount) {
       const ev = eventLog[eventLog.length - 1];
-      effects.push(ev.type === "field" ? `${ev.culprit}が場うんち` : `${ev.culprit}がPersonal Poop`);
+      effects.push(ev.type === "field" ? `${ev.culprit} got Shared Poop` : `${ev.culprit} got Personal Poop`);
     }
     if (lastMinorEvent && lastMinorEvent !== previousMinorEvent) effects.push(lastMinorEvent);
     rememberOperation({ turn: endedTurn, player: endedPlayerName, actions: endedActions, effects });
@@ -2077,7 +2177,7 @@
     eventLog.push(lastEvent);
     messageEl.textContent = `${p.name} got Personal Poop! UNCHIYU! 💩 (Penalty ${unchiPoint.toFixed(1)})`;
     addLog(`💩 ${p.name}: Personal Poop! UNCHIYU! Penalty ${unchiPoint.toFixed(1)} / No Flush Power damage`);
-    addFieldUnchi(fieldAdd, `${p.name}のPersonal Poop`, culprit);
+    addFieldUnchi(fieldAdd, `${p.name}'s Personal Poop`, culprit);
     updateUI();
   }
 
@@ -2100,23 +2200,16 @@
     if (gameOver || isLocked || isHolding) return;
     isHolding = true;
     dashCount = 0;
+    holdStartedAt = performance.now();
     nkoButton.classList.add("holding");
     nkoButton.classList.remove("long");
     nkoButton.setPointerCapture?.(ev.pointerId);
-    const live = word(0, false);
-    showPhrase(live);
-    messageEl.textContent = "Inputting";
-    nkoButtonLabel.textContent = live;
-    holdTimer = setInterval(() => {
-      dashCount++;
-      const liveNow = word(dashCount, false);
-      showPhrase(liveNow);
-      nkoButtonLabel.textContent = liveNow;
-      if (dashCount >= 9) nkoButton.classList.add("long");
-    }, TICK_MS);
+    refreshHoldPreview();
+    holdTimer = setInterval(refreshHoldPreview, HOLD_POLL_MS);
   }
   function finishHold() {
     if (!isHolding || gameOver) return;
+    dashCount = dashesFromHoldElapsed(performance.now() - holdStartedAt);
     clearInterval(holdTimer);
     holdTimer = null;
     nkoButton.classList.remove("holding", "long");
@@ -2375,7 +2468,7 @@
       return markSpecials(escaped.replace(rawMoveRegexGlobal(), (raw) => {
         const n = normalizeMove(raw);
         const cls = n && n.weird ? "move-hit move-weird" : "move-hit";
-        const title = n ? ` title="入力候補: ${n.normalized}"` : "";
+        const title = n ? ` title="Input candidate: ${n.normalized}"` : "";
         return `<span class="${cls}"${title}>${raw}</span>`;
       }));
     }
@@ -2388,7 +2481,7 @@
       return markSpecials(lineEsc.replace(rawMoveRegexGlobal(), (raw) => {
         const n = normalizeMove(raw);
         const cls = n && n.weird ? "move-hit move-weird" : "move-hit";
-        const title = n ? ` title="入力候補: ${n.normalized}"` : "";
+        const title = n ? ` title="Input candidate: ${n.normalized}"` : "";
         return `<span class="${cls}"${title}>${raw}</span>`;
       }));
     }).join("\n");
@@ -2404,8 +2497,8 @@
       }
       const jokerAttr = m.type === "joker" ? ` data-joker-cls="${escapeHTML(m.jokerCls || "random")}"` : "";
       const title = m.type === "joker" && m.jokerCls && m.jokerCls !== "random"
-        ? ` title="${classNameEN(m.jokerCls)}に仕込む"`
-        : ` title="この特殊行動をゲームに入力"`;
+        ? ` title="Set trap on ${classNameEN(m.jokerCls)}"`
+        : ` title="Apply this special action to the game"`;
       return `<button class="move-chip" data-apply-action="${m.type}"${jokerAttr}${targetAttrs}${title}${disabled}>${escapeHTML(m.normalized)}</button>`;
     }).join("");
     const seq = moves.map(m => m.normalized).join("　");
@@ -2414,7 +2507,7 @@
     const note = canApply
       ? (isLocked ? "Available after you pass the screen" : "Enter game on press")
       : `This reply belongs to T${target.turn}/${escapeHTML(target.player)}, so it will not be entered for the current turn`;
-    return `入力候補（${note}）：${chips}<br>${allButton}<button class="copy-mini" data-copy-moves="${escapeHTML(seq)}">候補だけコピー</button>`;
+    return `Input candidates (${note}): ${chips}<br>${allButton}<button class="copy-mini" data-copy-moves="${escapeHTML(seq)}">Copy candidates only</button>`;
   }
   function renderMoveSummary(moves) {
     if (!moves.length) return "No extracted candidates";
@@ -2428,9 +2521,9 @@
     aiReplies.push({ turn: target.turn, player: target.player, text });
     const div = document.createElement("div");
     div.className = "log-line";
-    const focusedNotice = ($("latestOnlyCheck") && $("latestOnlyCheck").checked) ? "（最新Turn抽出ON）" : "";
+    const focusedNotice = ($("latestOnlyCheck") && $("latestOnlyCheck").checked) ? "(latest-turn extraction ON)" : "";
     div.innerHTML =
-      `<div><strong>AI返答 T${target.turn}/${escapeHTML(target.player)} ${focusedNotice}</strong></div>` +
+      `<div><strong>AI reply T${target.turn}/${escapeHTML(target.player)} ${focusedNotice}</strong></div>` +
       `<div>${highlightMoveText(text).replace(/\n/g, "<br>")}</div>` +
       `<div class="hint">${renderMoveSummary(moves)}</div>`;
     $("aiReplyLog").prepend(div);
@@ -2968,7 +3061,7 @@
   });
   $("exampleAiReplyBtn").addEventListener("click", () => {
     const name = pendingAiRequest ? pendingAiRequest.player : players[active].name;
-    $("aiReplyBox").value = `まず様子見しつつ、場の空気はStill okay読ませすぎないゆ。\n${name} action:お茶ゆ☕`;
+    $("aiReplyBox").value = `I will play it safe and avoid pushing the room air too far.\n${name} action: Tea ☕`;
     $("aiReplyBox").dispatchEvent(new Event("input"));
     $("aiReplyBox").focus();
   });
